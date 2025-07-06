@@ -11,7 +11,7 @@ Welcome to the home of the **TriBridges Monthly Bulletin** — our race recaps, 
 - `index.html` – Our latest newsletter, optimized for mobile and WhatsApp sharing
 - 📸 Embedded club photos (hosted externally via Imgur)
 - 🔗 Clickable links to race results, reports, and social platforms
-- 💬 WhatsApp Community invite for members who aren’t already connected
+- 💬 Social Network Community invites for members who aren’t already connected (Spond, Facebook, WhatsApp)
 
 ---
 
@@ -29,4 +29,4 @@ We welcome race reports, photos, and ideas! Drop us a line at [comms@tribridges.
 
 ---
 
-🏁 _TriBridges — powered by grit, hills, ferry detours, and group chat hype._
+🏁 _TriBridges_
