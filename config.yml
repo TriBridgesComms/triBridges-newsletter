@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: TriBridgesComms/triBridges-newsletter
+  branch: main
+  base_url: https://tribridgescomms.github.io/triBridges-newsletter
+  auth_endpoint: admin/auth.html
+  client_id: Ov23liNX7qdScfdgYujt
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "newsletter"
+    label: "TriBridges Newsletter"
+    files:
+      - file: "index.html"
+        label: "Main Newsletter"
+        name: "main_newsletter"
+        editor:
+          preview: false
+        fields:
+          - { label: "Content", name: "body", widget: "markdown" }
