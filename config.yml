@@ -1,8 +1,0 @@
-backend:
-  name: github
-  repo: TriBridgesComms/triBridges-newsletter
-  branch: main
-  base_url: https://tbnewsletter-auth.netlify.app  # use your proxy URL here
-  auth_endpoint: oauth
-
-local_backend: false
