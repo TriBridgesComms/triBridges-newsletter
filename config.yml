@@ -1,17 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: TriBridgesComms/triBridges-newsletter
   branch: main
+  base_url: https://tbnewsletter-auth.netlify.app  # use your proxy URL here
+  auth_endpoint: oauth
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
-collections:
-  - name: "newsletter"
-    label: "Newsletter"
-    folder: "newsletter"
-    create: true
-    slug: "{slug}"
-    fields:
-      - {"label": "Title", "name": "title", "widget": "string"}
-      - {"label": "Date", "name": "date", "widget": "datetime"}
-      - {"label": "Body", "name": "body", "widget": "markdown"}
+local_backend: false
