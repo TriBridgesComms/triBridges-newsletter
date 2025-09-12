@@ -2,381 +2,700 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Your TriBridges club newsletter — photos, race results, updates, and shoutouts all in one place.">
-  <title>TriBridges Monthly – The June Edit</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TriBridges Monthly – August Recap</title>
+
+  <!-- Font (optional): remove if you prefer system fonts only -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <meta name="color-scheme" content="light" />
   <style>
+    :root{
+      --bg:#f7f7f7;
+      --text:#222;
+      --muted:#888;
+      --ink-1:#032f43;
+      --ink-2:#043952;
+      --ink-3:#045985;
+      --accent:#045985;
+      --accent-2:#033f61;
+      --border:#e2e2e2;
+      --card:#fff;
+      --shadow:0 2px 8px rgba(0,0,0,.05);
+      --radius:8px;
+      --pad:16px;
+      --brand-yellow:#f4b400;
+      --brand-yellow-d:#d99900;
+      --brand-blue:#007acc;
+      --ok:#25d366;
+      --warn:#e63946;
+      --info:#3ca9dd;
+
+      /* New festive tokens */
+      --festive-green:#0f9d58;
+      --festive-green-d:#0c7f48;
+      --festive-red:#d93025;
+      --snow:#fff7ec;
+    }
+
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Roboto', Arial, sans-serif;
-      background-color: #fff;
-      color: #222;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      word-break: keep-all;
-      overflow-wrap: break-word;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    p, li, h1, h2, h3, h4, h5, h6, blockquote, div, section, span {
-      word-break: keep-all;
-      overflow-wrap: break-word;
-    }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+
     .container {
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 640px;
+      margin: 20px auto;
       padding: 15px;
-      background: #fff;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    h1 {
-      font-size: 1.8em;
-      color: #032f43;
-      margin-bottom: 5px;
+
+    /* Anchor offset so headings aren't hidden after jump */
+    [id] { scroll-margin-top: 14px; }
+
+    /* Typography */
+    h1 { font-size: 1.9rem; color: var(--ink-1); margin: 0 0 6px; }
+    header p { margin: 0 0 10px; color: var(--ink-2); }
+    h2 { font-size: 1.3rem; color: var(--ink-2); margin: 1.2em 0 .4em; }
+    h2.big-news { font-size: 1.15rem; color: #b34700; margin: 1.4em 0 .2em; font-style: italic; }
+    h3 { font-size: 1.15rem; color: var(--ink-3); margin: 1em 0 .35em; }
+    h4 { font-size: 1rem; color: var(--ink-3); margin: .6em 0 .25em; }
+    p, li { font-size: 1rem; margin: .5em 0; }
+
+    /* Quick Links */
+    nav.quick-links {
+      background: #eef9ff;
+      border: 1px solid #cce7f5;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 12px 0 20px;
+      font-size: .95em;
     }
-    h2 {
-      font-size: 1.2em;
-      color: #06425c;
-      margin-top: 1.2em;
-      margin-bottom: 0.4em;
+    .quick-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
     }
-    h3 {
-      font-size: 1.1em;
-      color: #045985;
-      margin-top: 1em;
-      margin-bottom: 0.3em;
+    .quick-links a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
     }
-    h4 {
-      font-size: 1em;
-      color: #045985;
-      margin-top: 0.8em;
-      margin-bottom: 0.2em;
+    .quick-links a:hover,
+    .back-to-links:hover { text-decoration: underline; color: var(--accent-2); }
+
+    /* Links and buttons */
+    a { color: var(--accent); }
+    a:focus-visible,
+    .button:focus-visible { outline: 3px solid #9bd1ff; outline-offset: 2px; border-radius: 4px; }
+
+    .button,
+    .cta-button,
+    .swim-button {
+      --btn-bg: var(--brand-yellow);
+      --btn-fg: #fff;
+      display: inline-block;
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: background .2s ease-in-out, transform .05s ease;
+      border: none;
+      line-height: 1.1;
+      cursor: pointer;
     }
-    p, li {
-      font-size: 1em;
-      margin: 0.5em 0;
+    .cta-button:hover,
+    .swim-button:hover,
+    .button:hover { background: var(--brand-yellow-d); }
+    .cta-button:active,
+    .swim-button:active,
+    .button:active { transform: translateY(1px); }
+
+    .swim-button.main { --btn-bg: var(--brand-yellow); }
+    .swim-button.secondary { --btn-bg:#045985; }
+    .swim-button.secondary:hover { background:#034768; }
+
+    .back-to-links,
+    .back-to-top {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: .9em;
+      color: var(--accent);
+      text-decoration: none;
     }
-    ul {
-      padding-left: 1em;
-      margin: 0.4em 0;
-    }
+
+    /* Utility */
+    .divider { border-top: 1px solid var(--border); margin: 2em 0; }
+
+    /* Images */
     img {
       display: block;
       width: 100%;
-      max-width: 600px;
       height: auto;
       margin: 12px auto;
-      border-radius: 4px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.08);
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity .6s ease, transform .6s ease;
     }
-    blockquote {
-      border-left: 3px solid #0073aa;
-      background: #f1faff;
-      padding: 8px 12px;
-      margin: 1em 0;
-      font-style: italic;
-      font-size: 0.95em;
-    }
+    img.loaded { opacity: 1; transform: translateY(0); }
+
+    /* Sections & cards */
     .highlight {
-      background-color: #f0f8ff;
-      padding: 12px;
-      border-left: 4px solid #007acc;
-      margin-top: 1.5em;
-      border-radius: 4px;
-    }
-    .whatsapp-highlight {
-      background-color: #e7f9ef;
-      border-left: 4px solid #25d366;
-      padding: 12px;
-      margin-top: 1.5em;
-      border-radius: 4px;
-    }
-    .race-section {
-      background-color: #f6faff;
-      border-left: 6px solid #3ca9dd;
-      padding: 16px 12px;
-      margin-top: 2em;
+      background: #f9f9f9;
+      border-left: 4px solid #ccc;
       border-radius: 6px;
-    }
-    .hamburg-section {
-      background-color: #fff5f5;
-      border-left: 6px solid #e63946;
-      padding: 16px 12px;
-      margin-top: 2em;
-      border-radius: 6px;
-    }
-    .hamburg-highlight {
-      background-color: #ffeaea;
-      border-left: 4px solid #e63946;
-      padding: 12px 10px;
-      border-radius: 4px;
+      padding: 12px;
       margin-top: 1em;
+      opacity: 1; transform: none;
     }
-    .swim-section {
-      background-color: #fdf3f3;
-      border-left: 6px solid #e63946;
-      padding: 16px 20px;
-      margin-top: 2em;
+
+    .swim-section,
+    .race-section,
+    .event-item,
+    #shoutoutsContainer div,
+    .whatsapp-highlight,
+    .results-cta,
+    .discount-body,
+    .party-cta {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .visible { opacity: 1 !important; transform: translateY(0) !important; }
+
+    .swim-section { background: #fdf3f3; border-left: 4px solid var(--warn); border-radius: 6px; padding: 16px; }
+    .membership-section { background: #fff8e6; border-left: 4px solid var(--brand-yellow); border-radius: 6px; padding: 16px; margin: 20px 0; opacity: 1; transform: none; }
+    .membership-section h3 { margin-top: 0; color: #b35a00; }
+
+    .race-section { background: #f6faff; border-left: 4px solid var(--info); border-radius: 6px; padding: 16px; margin-bottom: 1em; }
+    .race-highlight { background: #ffeaea; border-left: 4px solid var(--warn); padding: 14px; border-radius: 6px; margin-top: 10px; }
+
+    .event-group { margin-bottom: 20px; }
+    .event-item { background: #f0f8ff; border-left: 4px solid #0077cc; padding: 12px; border-radius: 6px; margin-top: 8px; }
+    .qualified { display: inline-block; margin-left: 8px; padding: 2px 6px; background: #ffd700; color: #000; font-weight: 700; font-size: .85em; border-radius: 4px; }
+    #shoutoutsContainer div { background: #f9f9f9; border-left: 4px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 6px; }
+
+    /* Swim options layout */
+    .swim-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 8px 0 4px;
+    }
+    .swim-option {
+      background:#fff;
+      border:1px solid #dfeaf5;
+      border-left:4px solid #6fb3e8;
+      border-radius:6px;
+      padding:12px;
+    }
+
+    /* WhatsApp */
+    .whatsapp-highlight { background: #e7f9ef; border-left: 4px solid var(--ok); border-radius: 6px; padding: 12px; margin-top: 1em; }
+
+    /* Discounts */
+    .discount-header { background: var(--brand-blue); color: #fff; padding: 8px 12px; border-radius: 6px 6px 0 0; font-weight: 700; }
+    .discount-body { background: #eaf4ff; padding: 12px; border-radius: 0 0 6px 6px; border: 1px solid var(--brand-blue); border-top: none; word-break: break-word; }
+    .discount-separator { border-top: 1px solid #cdd9e5; margin: 14px 0; }
+    .discount-code {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 14px;
       border-radius: 6px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 6px 0;
+      text-decoration: none;
     }
-    footer {
-      margin-top: 2em;
-      font-size: 0.95em;
-      text-align: center;
-      color: #888;
+    .discount-code:hover { background: var(--accent-2); }
+
+    /* Results CTA */
+    .results-cta { background: #fef7e6; border-left: 4px solid var(--brand-yellow); border-radius: 6px; padding: 16px; margin: 20px 0; text-align: center; }
+    .results-cta h2 { margin: 0 0 .2em; color: #b35a00; }
+
+    /* Christmas Party CTA */
+    .party-cta {
+      background:
+        radial-gradient(400px 120px at 100% -20%, rgba(255,255,255,.7), transparent 60%),
+        var(--snow);
+      border: 1px solid #fae2cf;
+      border-left: 6px solid var(--festive-green);
+      border-radius: 10px;
+      padding: 18px;
     }
-    hr {
-      border: none;
-      border-top: 1px solid #eee;
-      margin: 1.5em 0;
+    .party-cta h2 {
+      color: var(--festive-green);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      flex-wrap: wrap;
     }
-    @media (max-width: 650px) {
-      .container {
-        padding: 8px;
+    .party-meta {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px 16px;
+      margin: 8px 0 10px;
+    }
+    .party-meta div {
+      background:#ffffff;
+      border:1px solid #f1e3d8;
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    .party-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-rsvp { --btn-bg: var(--festive-green); }
+    .btn-rsvp:hover { background: var(--festive-green-d); }
+    .btn-ics { --btn-bg: var(--festive-red); }
+    .btn-ics:hover { background: #b2251c; }
+
+    /* Footer */
+    footer { margin-top: 2em; padding-top: 1em; font-size: .95em; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+    footer p a { margin: 0 6px; text-decoration: none; }
+    footer p a:hover { text-decoration: underline; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      img, .swim-section, .race-section, .event-item, #shoutoutsContainer div, .whatsapp-highlight, .results-cta, .discount-body, .party-cta {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
       }
-      img {
-        max-width: 100%;
-      }
-      h1 {
-        font-size: 1.3em;
-      }
-      h2 {
-        font-size: 1.05em;
-      }
-      h3 {
-        font-size: 1em;
-      }
-      p, li {
-        font-size: 0.97em;
-      }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.65rem; }
+      h2 { font-size: 1.2rem; }
+      h3 { font-size: 1.08rem; }
+      p, li { font-size: .96rem; }
+      .party-meta { grid-template-columns: 1fr; }
+    }
+
+    /* Utility a11y */
+    .visually-hidden {
+      position:absolute !important; clip:rect(1px,1px,1px,1px);
+      padding:0; border:0; height:1px; width:1px; overflow:hidden; white-space:nowrap;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header style="border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">
+  <a class="visually-hidden" href="#main">Skip to content</a>
+
+  <div class="container" id="top">
+    <header>
       <h1>🗞️ TriBridges Monthly</h1>
-      <p style="margin: 0; font-size: 1.1em; font-weight: 500; color: #444;">
-        The All-New TriBridges Monthly – June Recap
-      </p>
-      <p style="margin-top: 8px; font-style: italic; color: #666;">
-        Catching up on the moments, the milestones, and the mayhem of the season so far.<br>
-        Race reports, picturesque portraits, and bikes on boats!?
-      </p>
+      <p>The August Recap – Racing, Silverware &amp; CHRISTMAS ALREADY?!</p>
     </header>
 
-    <section>
-      <h2>👋 Chairman's Opening Remarks</h2>
-      <div class="highlight" style="background-color: #f9f9f9; border-left: 4px solid #ccc;">
-        <p><strong>A message from our Club Chairman, Marc Preece</strong></p>
-        <p>
-          Welcome to the inaugural edition of our monthly newsletter! As your chairman, I am thrilled to launch this platform that will celebrate the achievements, stories, and spirit of our incredible triathlon community.
-        </p>
-        <p>
-          The club has just this year marked its 5-year anniversary, and what our members have achieved over that time is truly remarkable—from new friendships formed, to first triathlons, duathlons and some who completed truly audacious physical challenges like Celtman or an Ironman—each and every one of you should be proud.
-        </p>
-        <p>
-          I’d also like to thank the committee and coaches, who behind the scenes are doing all they can for the betterment of the club. We have recently received feedback to tailor our swim sessions, where we have listened and made crucial changes to support our members—unfortunately this has not seen an increase in numbers and the club is losing money with swim pool charges and insufficient members attending. We will monitor this over the coming months and we do hope to see you back swimming.
-        </p>
-        <p>
-          This month we reflect on June 2025, where we had members racing internationally, locally and we held an adventurous club ride to the islands. We do plan to organise more of these in the future.
-        </p>
-        <p>
-          In this newsletter you will find links to inspiring stories from fellow members, updates on upcoming events, and tips to enhance your training. Our goal is to foster a sense of camaraderie and engagement among all members, encouraging everyone to share their experiences and achievements.
-        </p>
-        <p>
-          In order for everyone to relish the benefits of the club I encourage you all to actively participate and engage with fellow members, whether it's formal training or ad hoc training within the club—all will support your goals I am sure. Together, we can create a vibrant, thriving community that motivates and inspires each other to reach new heights.
-        </p>
-        <p>
-          For now, enjoy the summer month of July and any holidays you may have planned. Let’s make this journey unforgettable.
-        </p>
-        <p>
-          Now let’s be truly awesome…
-        </p>
-        <p>Yours in Tri</p>
-        <p><em>– Marc, Club Chairman</em></p>
-      </div>
-    </section>
-
-    <section class="swim-section">
-      <h2>💧 Monthly Swim Fees – Now Live</h2>
-      <p>The Committee has introduced a <strong>monthly swim subscription for £25</strong>, giving you unlimited access to <strong>Monday and Thursday</strong> swim sessions.</p>
+    <!-- Quick Links -->
+    <nav class="quick-links" aria-label="Quick links">
+      <p><strong>📑 Quick Links:</strong></p>
       <ul>
-        <li>No Spond booking needed — simply turn up and swim</li>
-        <li>💰 Works out to a <strong>37.5% discount</strong> vs. £5 pay-as-you-go</li>
-        <li>Perfect for those building consistency and form</li>
+        <li><a href="#christmas-party">🎄 Christmas Party</a></li>
+        <li><a href="#swim-sessions">🏊 Pool Swim</a></li>
+        <li><a href="#club-announcement">📣 Club Announcement</a></li>
+        <li><a href="#race-reports">🗞 Race Highlights</a></li>
+        <li><a href="#coaches-corner">🧠 Coaches’ Corner</a></li>
+        <li><a href="#upcoming-events">📅 Tri Events</a></li>
+        <li><a href="#whatsapp">💬 WhatsApp</a></li>
+        <li><a href="#membership">🎟 TS Membership</a></li>
+        <li><a href="#discounts">🏷 Discounts</a></li>
+        <li><a href="https://www.facebook.com/groups/2256266274676317/" target="_blank" rel="noopener noreferrer">📘 Facebook Group</a></li>
+        <li><a href="https://spond.com/invite/GXBWF" target="_blank" rel="noopener noreferrer">⭕ Spond</a></li>
+        <li><a href="mailto:comms@tribridges.co.uk">📧 Email</a></li>
       </ul>
-      <p>🎯 To sign up, just
-        <a href="https://pay.gocardless.com/BRT0003YMG8YGMQ" target="_blank" style="color: #e63946; font-weight: bold;">click here to subscribe via GoCardless</a>.
-      </p>
-      <p>Still weighing it up? Pay-as-you-go remains available at <strong>£5 (+transaction fee)</strong> per session through Spond.</p>
-      <p>Thanks for your patience while the Committee monitors the new system — feedback is always welcome! 🤝</p>
-    </section>
+    </nav>
 
-    <section>
-      <h2>🗞️ Race Reports & Results</h2>
+    <main id="main" tabindex="-1">
+      <!-- Christmas Party CTA -->
+      <section id="christmas-party" class="party-cta visible" aria-labelledby="party-heading">
+        <h2 id="party-heading">🎄 TriBridges Christmas Party — You’re Invited!</h2>
+        <p>Let’s come together, reflect on the remarkable year we’ve had, and celebrate the exceptional achievements of our members. Join us for an evening filled with great food, drinks, great company, and inspiring stories.</p>
 
-      <section class="race-section">
-        <h3>🏔 Celtman Extreme & Solo Point Five</h3>
-        <p>One of the toughest and wildest triathlon races in the world didn’t disappoint—with 2 of our own showing true grit in the rugged landscape of Torridon taking on the full. A week later was the solo point five (Celtman's evil little brother). Read more below...</p>
-        <img src="https://i.imgur.com/UiC8cqA.jpeg" alt="Ethan and Wendy at Celtman">
-
-        <div class="highlight">
-          <h4>🌧️ Ethan Takes on Extreme</h4>
-          <p><strong>Ethan</strong> took on the full Celtman with a solid performance. A really strong swim and achieving multiple bike PBs, he battled the elements and came out smiling. A true test of endurance.</p>
-          <p><a href="https://www.facebook.com/share/p/16XcNDRthn/" target="_blank">📖 Ethan’s race report</a></p>
-          <img src="https://i.imgur.com/SEOaJff.jpeg" alt="Ethan at Celtman">
+        <div class="party-meta" role="list">
+          <div role="listitem"><strong>📅 Date:</strong> Fri, <time datetime="2025-12-05">5 Dec 2025</time></div>
+          <div role="listitem"><strong>⏰ Time:</strong> 18:00 onwards</div>
+          <div role="listitem"><strong>📍 Location:</strong> Louis Browns, function suite</div>
         </div>
 
-        <div class="highlight">
-          <h4>🌬️ Wendy’s Celtman Story</h4>
-          <p><strong>Wendy</strong> faced Torridon’s toughest test with immense strength. From loch to munro, she showed real heart across the full course.</p>
-          <p><a href="https://www.facebook.com/share/r/16kDjJ4e9u/" target="_blank">📖 Wendy’s race recap</a></p>
-          <img src="https://i.imgur.com/jm9aMnS.jpeg" alt="Wendy at Celtman">
+        <div class="party-actions">
+          <a class="button btn-rsvp" href="https://spond.com/invite/GXBWF" target="_blank" rel="noopener noreferrer" aria-label="RSVP on Spond (opens in new tab)">👉 RSVP on Spond</a>
+          <button type="button" class="button btn-ics" id="addToCalendar">📅 Add to calendar (.ics)</button>
         </div>
 
-        <div class="highlight">
-          <h4>🥇 Claire Weller – Solo Point Five Champion</h4>
-          <p>The following week, <strong>Claire</strong> dominated the Solo Point Five course—first out the water, relentless on the bike, and bold on the run. Final time: <strong>06:08:58</strong>.</p>
-          <p><a href="https://cxtri.com/solo-point-five" target="_blank">📄 View full results</a></p>
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <!-- Triathlon Scotland Membership -->
+      <section id="membership" class="membership-section" aria-labelledby="ts-membership">
+        <h3 id="ts-membership">🛎️ Why it pays to be a member of Triathlon Scotland</h3>
+        <p>It really is a must if participating in events, and it also comes with fantastic benefits:</p>
+        <ul>
+          <li>🏅 <strong>Unlimited Race Licence</strong> for Scottish and UK events</li>
+          <li>💰 <strong>Access to Reward Zone Discounts</strong> – amazing deals on top brands!</li>
+          <li>📚 Insurance cover for training &amp; racing</li>
+          <li>🏅 Eligibility to win National Championship medals</li>
+        </ul>
+        <p><strong>🔥 The Reward Zone discounts are excellent value alone!</strong></p>
+        <p>Up to: 50% off Nike — 40% off Garmin — 40% off Hoka — 25% off Oakley — 20% off TrainingPeaks. Plus much more…</p>
+        <p>
+          <a href="https://www.triathlonscotland.org/membership/" target="_blank" rel="noopener noreferrer" class="cta-button" aria-label="Join Triathlon Scotland (opens in new tab)">
+            🔗 Join Triathlon Scotland Today
+          </a>
+        </p>
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <!-- Pool Swim Sessions -->
+      <section id="swim-sessions" class="swim-section" aria-labelledby="swim-heading">
+        <h2 id="swim-heading">🏊 Pool Swim Sessions</h2>
+        <p>Join coached swims – choose from <strong>Direct Debit (£25/month)</strong> or <strong>PAYG (£5.34/session)</strong> options.</p>
+        <ul>
+          <li><strong>🗓 Times:</strong> Mondays &amp; Thursdays — 06:00–07:30</li>
+          <li><strong>👨‍🏫 Coaching:</strong> 30 mins poolside coaching every Monday</li>
+          <li><strong>📍 Venue:</strong> Carnegie Leisure Centre</li>
+        </ul>
+        <p>Direct Debit means <strong>turn up and swim</strong> (no booking required). Prefer PAYG? Book individual sessions below:</p>
+
+        <div class="swim-options">
+          <div class="swim-option">
+            <h3>💳 Direct Debit — £25/month</h3>
+            <p>Unlimited sessions. Turn up and swim, no booking required.</p>
+            <a
+              href="https://pay.gocardless.com/billing/static/collect-customer-details?id=BRF01K1JWMB2NAFBZY5W7TAPBHHKJ9G7&initial=%2Fcollect-customer-details"
+              target="_blank" rel="noopener noreferrer"
+              class="swim-button main">Sign Up for Direct Debit</a>
+          </div>
+
+          <div class="swim-option">
+            <h3>🏊 PAYG — £5.34/session</h3>
+            <p>Book individual sessions via Spond.</p>
+            <a
+              href="https://spond.com/client/groups/2576C43FF4D848A491D8723C0AF0F64D"
+              target="_blank" rel="noopener noreferrer"
+              class="swim-button secondary">Book PAYG Session</a>
+          </div>
+        </div>
+
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <!-- Club Announcement -->
+      <section id="club-announcement" class="race-section" aria-labelledby="lochore-heading">
+        <h2 id="lochore-heading">📣 Lochore Triathlon Festival – Club Round-Up</h2>
+        <p>On the last Sunday in August we had a good club turnout at Lochore, swapping our usual road bikes for mountain bikes and tackling the off-road course:</p>
+        <ul>
+          <li><strong>Marc, Stuart and Doug</strong> — Full Off-Road Tri</li>
+          <li><strong>Stevie</strong> — Short Tri</li>
+          <li><strong>Jake</strong> — Aquathlon</li>
+        </ul>
+        <div class="race-highlight">
+          <p><strong>Results highlights — three AG podiums!</strong></p>
+          <ul>
+            <li><strong>Stevie</strong> — 7th overall + 1st Open Senior 🥇</li>
+            <li><strong>Marc</strong> — 6th overall + 1st AG Super Vet 🥇</li>
+            <li><strong>Doug</strong> — 5th overall + 3rd AG Open Senior 🥉</li>
+          </ul>
+          <p><a href="https://www.whatsmytimeresults.co.uk/results.aspx?CId=17047&RId=6387&dt=1&top=10&EId=8" target="_blank" rel="noopener noreferrer">📊 Full results</a></p>
+        </div>
+        <p>👏 Big thanks to <strong>Chris Falconer</strong> for supporting on the day and snapping some great photos.</p>
+        <p>💪 Commiserations to <strong>Claire F</strong> who had to pull out of the Aquabike — back stronger soon!</p>
+        <img src="https://i.imgur.com/dnfk9Xb.jpeg" alt="TriBridges athletes at Lochore Triathlon Festival" loading="lazy" />
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
+
+      <!-- Race Reports -->
+      <section id="race-reports" aria-labelledby="race-reports-heading">
+        <h2 id="race-reports-heading">🗞️ Race Highlights</h2>
+
+        <article class="race-section">
+          <h3>Ironman Sweden — Kalmar 🇸🇪💪</h3>
+          <p><strong>Charlie Crawford</strong> took on his <strong>first full-distance Ironman</strong> in Kalmar
+            and delivered an <strong>outstanding performance</strong>, especially impressive after overcoming
+            injury setbacks in the run-up. A fantastic debut cheered on by a huge Swedish crowd.</p>
+          <img src="https://i.imgur.com/tEHSIH2.jpeg" alt="Charlie Crawford at Ironman Kalmar" loading="lazy" />
+          <p><a href="https://www.facebook.com/share/p/1Z2LwnagPZ/" target="_blank" rel="noopener noreferrer">📖 Read Charlie’s full race report</a></p>
+        </article>
+
+        <article class="race-section">
+          <h3>Ironman Switzerland — Thun 🇨🇭</h3>
+          <p>In <strong>2025</strong>, <strong>Keith</strong> delivered a fantastic performance at Ironman Switzerland,
+            finishing in <strong>12:03:36</strong>. The beautiful course packs in around <strong>2,000 m of elevation on the bike</strong>,
+            making it a true test of endurance across the Swiss landscape.</p>
+          <img src="https://i.imgur.com/x1cHU10.jpeg" alt="Keith at Ironman Switzerland – Thun" loading="lazy" />
+          <p><a href="https://www.facebook.com/share/p/19wap6sNoy/" target="_blank" rel="noopener noreferrer">📖 Read Keith’s race report</a></p>
+        </article>
+
+        <article class="race-section">
+          <h3>Norseman Xtreme Triathlon 🇳🇴🐉</h3>
+          <p><strong>Claire Weller</strong> secured a superb <strong>4th place in an elite field</strong> at one of the
+            world’s most iconic races. Reflecting afterwards, she said:
+            <em>“Norseman 100% pushed me to my limits. It was a challenging but amazing experience.
+            Norway is a beautiful country and racing there was a privilege.”</em></p>
+          <p>Never one to shy away from gruelling challenges, Claire now turns her focus to
+            <strong>Ironman Wales</strong> next month — known as <em>“the dragon”</em> and considered one of the
+            toughest Ironman courses in the world.</p>
+          <p><strong>💛 Good luck Claire from everyone at TriBridges!</strong></p>
+          <img src="https://i.imgur.com/qMgATFN.jpeg" alt="Claire Weller at Norseman Xtreme Triathlon" loading="lazy" />
+        </article>
+
+        <article class="race-section">
+          <h3>Scottish Middle Distance Champs — Aberfeldy 🏆🏴</h3>
+          <p><strong>Heather Elder</strong> delivered a commanding performance at Aberfeldy, taking the win and
+            earning the title of <strong>Scottish Middle Distance Champion</strong>. A brilliant day for both Heather
+            and the club.</p>
+          <img src="https://i.imgur.com/5VA2HC1.jpeg" alt="Heather Elder at Aberfeldy Middle Distance Champs" loading="lazy" />
+          <p><a href="https://www.facebook.com/share/p/16tHt7jj3k/" target="_blank" rel="noopener noreferrer">📖 Read Heather’s full race report</a></p>
+        </article>
+
+        <article class="race-section">
+          <h3>Itera-Lite 2025 — Scotland 🌍💛</h3>
+          <p>The <strong>2025 Itera-Lite in Scotland</strong> was a 330km non-stop adventure of
+            kayaking, mountain biking, trekking, abseiling, and orienteering — battled through
+            searing heat, monsoon rains, and sleep deprivation. <strong>Alan Affleck and his teammate John</strong>
+            raced in memory of their friend Sarah, turning it into a story of
+            <strong>friendship and resilience</strong>.</p>
+          <img src="https://i.imgur.com/YPXCXCg.jpeg" alt="Alan Affleck at Itera-Lite 2025 Adventure Race" loading="lazy" />
+          <p>
+            <a href="https://alan9c13c170c3e.blog/2025-itera-lite/" target="_blank" rel="noopener noreferrer">📖 Read Alan’s race report</a> |
+            <a href="https://www.itera.co.uk/" target="_blank" rel="noopener noreferrer">🌍 Event info</a>
+          </p>
+        </article>
+
+        <article class="race-section">
+          <h3>Restless Xtreme Gravel XTri — Scotland 🇬🇧</h3>
+          <p>On <strong>23 August 2025</strong>, <strong>Gill</strong> completed the inaugural Restless Xtreme Gravel XTri —
+            a brand new off-road challenge blending gravel riding with triathlon spirit. Riders took on
+            rugged Scottish trails, steep climbs, and fast gravel descents in a demanding test of endurance.</p>
+          <img src="https://i.imgur.com/5ygmMwc.jpeg" alt="Gill at Restless Xtreme Gravel XTri" loading="lazy" />
+          <p>
+            <a href="https://www.facebook.com/share/p/172UHTcPSZ/" target="_blank" rel="noopener noreferrer">📖 Read Gill’s race report</a> |
+            <a href="https://www.xtriworldtour.com/gravel-xtri" target="_blank" rel="noopener noreferrer">🌍 Event info</a>
+          </p>
+        </article>
+
+        <div class="results-cta">
+          <h2>📝 Have You Logged Your 2025 Race Results?</h2>
+          <p>Logged results help us build end-of-year nominations!</p>
+          <p><a href="https://www.facebook.com/groups/2256266274676317/posts/3624964147806516/" target="_blank" rel="noopener noreferrer" class="cta-button">📥 Log Your Race Results Here</a></p>
         </div>
       </section>
 
-      <section class="hamburg-section">
-        <h3>🇪🇺 Ironman European Championship – Hamburg</h3>
-        <p>TriBridges had a good presence at the 2025 Ironman European Champs, as three of our athletes went to Hamburg and raced amongst top competition.</p>
+      <div class="divider" role="separator" aria-hidden="true"></div>
 
-        <div class="hamburg-highlight">
-          <h4>🔥 Marc</h4>
-          <p><strong>Sub-10 in style!</strong> Marc smashed through in <strong>09:54:53</strong>—a huge personal milestone backed by disciplined pacing and fearless determination and commitment in training. Well done coach!</p>
-          <p><a href="https://www.facebook.com/share/p/16u6LdbXZf/" target="_blank" style="color: #e63946; font-weight: bold;">📖 Read Marc’s full recap</a></p>
-          <img src="https://i.imgur.com/Rm3nDy4.jpeg" alt="Marc racing at Ironman Hamburg">
-        </div>
+<!-- Coaches' Corner -->
+<section id="coaches-corner">
+  <h2>🧠 Coaches’ Corner</h2>
+  <div class="highlight">
+    <blockquote style="margin: 0 0 12px; font-style: italic;">
+      “In multisport, the finish line is never the true goal. The real win is showing up, doing the work, and discovering the stronger athlete inside you each day."
+    </blockquote>
+    <hr style="border: 0; border-top: 1px solid #e2e2e2; margin: 12px 0;">
+    <blockquote style="margin: 0; font-style: italic;">
+      "Consistency beats intensity. It’s not the single heroic session that builds a triathlete, but the steady rhythm of training, recovery, and trust in the process."
+    </blockquote>
+  </div>
+  <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+</section>
 
-        <div class="hamburg-highlight">
-          <h4>🚴‍♂️ Mark</h4>
-          <p><strong>Mark Adair</strong> pushed through prep challenges and delivered big on the day—earning PBs in both bike and run at Ironman Hamburg. A solid performance on the European stage.</p>
-          <p><a href="https://www.facebook.com/share/p/1E4PJeeCjc/" target="_blank" style="color: #e63946; font-weight: bold;">📖 Read Mark’s recap</a></p>
-          <img src="https://i.imgur.com/YkAk2Y1.jpeg" alt="Mark on course at Hamburg">
-        </div>
+      <div class="divider" role="separator" aria-hidden="true"></div>
 
-        <div class="hamburg-highlight">
-          <h4>🏃‍♂️ Scott</h4>
-          <p><strong>Scott Hutchinson</strong> went deep into the hurt locker in Hamburg—completing the entire swim and bike, and running 32km before making the smart call to step off with just 10K to go. It was a tough day, but an even tougher decision made in the name of long-term health.</p>
-          <p>Massive respect, Scott 👏</p>
-          <p><a href="https://www.facebook.com/share/p/1ZDJgQJaMk/" target="_blank" style="color: #e63946; font-weight: bold;">📖 Read Scott’s race reflection</a></p>
-          <img src="https://i.imgur.com/hIMiStl.jpeg" alt="Scott at Ironman Hamburg">
+
+      <!-- Upcoming Tri Events -->
+      <section id="upcoming-events" aria-labelledby="events-heading">
+        <h2 id="events-heading">📅 Upcoming Triathlon Events</h2>
+        <div id="upcomingEventsContainer">
+
+
+          <div class="event-item visible">
+            <h4>Aviemore Cross Triathlon (Scottish Champs) — 14 Sep 2025, Badaguish (Aviemore)</h4>
+            <p>Off-road cross triathlon — short &amp; long Champs races, plus relay</p>
+          </div>
+
+          <div class="event-item visible">
+            <h4>Celtic Cup 2025 – Llandudno Standard Triathlon — 4 Oct 2025, Llandudno, Wales</h4>
+            <p>Inaugural Celtic Cup <span class="qualified">Marc Preece &amp; Colin McMorrin — Team Scotland</span></p>
+          </div>
+
+          <div class="event-item visible">
+            <h4>Ironman Barcelona — 5 Oct 2025, Calella, Spain</h4>
+            <p>Several TriBridges members racing</p>
+          </div>
+
         </div>
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
       </section>
 
-      <section>
-        <h3>📝 Geoff’s Bolton 70.3 Return</h3>
-        <p>Geoff’s back! After injury setbacks, he smashed Bolton 70.3, posting a speedy 32-min swim and finished in <strong>05:39:54</strong>.</p>
-        <p><a href="https://www.facebook.com/share/p/1BnTm6pZvz/">Read full report</a></p>
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <!-- WhatsApp -->
+      <section id="whatsapp" class="whatsapp-highlight" aria-labelledby="whatsapp-heading">
+        <h3 id="whatsapp-heading">💬 Join the TriBridges WhatsApp Community!</h3>
+        <p>Be part of our growing <strong>WhatsApp community</strong> — the hub for all things TriBridges:</p>
+        <ul>
+          <li>📆 Organise spontaneous <strong>meet-ups and training sessions</strong></li>
+          <li>🏊🚴🏃 Join <strong>race-specific chats</strong> for tips, support &amp; updates</li>
+          <li>❓ Ask questions and get advice from fellow members</li>
+          <li>🎉 Stay in the loop with the latest club news &amp; banter</li>
+        </ul>
+        <p><strong>👉 Ready to join?</strong> Click below to be part of the conversation:</p>
+        <p>
+          <a href="https://chat.whatsapp.com/LJCmVxMOnD0DFzBC3niTte" target="_blank" rel="noopener noreferrer" class="cta-button">
+            🔗 Join the WhatsApp Community
+          </a>
+        </p>
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
       </section>
 
-      <section>
-        <h3>🏁 Balbirnie Duathlon</h3>
-        <p>Shoutout to <strong>Leona</strong>, <strong>Colin</strong>, <strong>Chris</strong>, and <strong>Stephen</strong>. 👏 Special mention to Colin for 2nd place!</p>
-        <img src="https://i.imgur.com/C6wVBW3.jpeg" alt="Balbirnie Team">
-        <p><a href="https://results.sporthive.com/events/7340846738116182016/races/2" target="_blank" style="color: #e63946; font-weight: bold;">📊 Full race results here</a></p>
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <!-- Club Discounts -->
+      <section id="discounts" aria-labelledby="discounts-heading">
+        <h2 class="discount-header" id="discounts-heading">🏷️ Club Discounts &amp; Promotions</h2>
+
+        <div class="discount-body visible">
+          <h3>SportsShoes</h3>
+          <p>The SportsShoes code for <strong>September</strong> is:</p>
+          <a href="https://www.sportsshoes.com/" target="_blank" rel="noopener noreferrer" class="discount-code" aria-label="Use SportsShoes code J7R4D65 on sportsshoes.com">J7R4D65</a>
+          <p>
+            ✅ 15% off AW25-only products<br>
+            ❌ Not valid on: Brooks, Coros, Garmin, Maurten, Shokz<br>
+            ⏳ Valid until 01/10/2025
+          </p>
+        </div>
+
+        <div class="discount-separator" role="separator" aria-hidden="true"></div>
+
+        <div class="discount-body">
+          <h3>British Triathlon Reward Zone</h3>
+          <p>Amazing discounts on a large range of brands and products.</p>
+          <!-- TODO: replace '#' with your exact portal URL if different -->
+          <p><a href="#" class="discount-code">Open Reward Zone</a></p>
+        </div>
       </section>
-    </section>
-
-    <div class="highlight">
-      <p>🏆 <strong>Have you raced or are you planning to this year?</strong><br>
-      Make sure you <a href="https://www.facebook.com/share/p/1G21hPm7sq/"target="_blank">log your past results and future races here</a>. This is what we’ll use for selecting 2025 award winners, so get those results in!</p>
-    </div>
-
-    <section>
-      <h2>🙌 Member Shoutouts</h2>
-      <ul>
-        <li><strong>Claire Fairbairn</strong> – First standard-distance tri at Ullswater!</li>
-        <li><strong>Support Crew</strong> – Huge well done to Barry, Leona and Gill who provided race support to the club athletes taking on Celtman</li>
-        <li><strong>Lesley & Mike</strong> – Got hitched on 20th June. Massive congratulations from everyone at the club!💍</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>⛴️ TriFerry Adventure</h2>
-      <p>In June, a group of TriBridges members took their bikes over the water to ride around the Island of Arran. The route included steep climbs, coastal rollers, and plenty of banter. Spirits were high, legs were tested, and the scenery was unbeatable.</p>
-      <p>We’re already planning the next one—so if you missed out, keep your eyes on the next newsletter and WhatsApp comms!</p>
-      <img src="https://i.imgur.com/106ItKe.jpeg" alt="Ferry Ride">
-    </section>
-
-    <section>
-      <h2>📣 Coaches’ Corner</h2>
-      <p><em>Insights from Marc, Stevie, Chris, and Stuart</em></p>
-      <div class="highlight">
-        <p style="font-style: italic;">“Swimming isn’t just about fitness—it’s about technique. You can be the fittest athlete on the start line, but without efficient form, you’re working twice as hard for half the gain.”</p>
-        <p style="margin-top: 8px;">Marc’s advice? Focus on body position, breathing, drills—and, most importantly, consistency week after week. The speed will follow. 🏊‍♂️</p>
-      </div>
-      <div class="highlight">
-        <p>🎥 Our coaches often recommend content from the <a href="https://www.youtube.com/user/EffortlessSwimming" target="_blank">Effortless Swimming</a> YouTube channel.</p>
-        <p>Here’s a great clip showing good vs poor catch technique:<br>
-        👉 <a href="https://shorturl.at/cy3Ov" target="_blank">Watch the breakdown</a></p>
-      </div>
-    </section>
-
-    <section>
-      <h2>📅 Recent/Upcoming Events</h2>
-      <ul>
-        <li>
-          <strong>Nairn Scottish Sprint Championships</strong><br>
-          🗓️ 6 July 2025<br>
-          📣 Race Reports and Highlights in next month's issue.<br>
-          🔗 <a href="https://results.perfecttimingscotland.co.uk/Results.aspx?CId=20065&RId=1220" target="_blank">Results, you may recognise a few names!</a>
-        </li>
-        <li>
-          <strong>Loch Lomond Beastie Triathlon Festival 2025</strong><br>
-          🗓️ 21 July 2025<br>
-          🔗 <a href="https://www.entrycentral.com/festival/3405" target="_blank">Race Details</a>
-        </li>
-        <li>
-          <strong>Monikie Standard Triathlon</strong><br>
-          🗓️ 19 July 2025<br>
-          🏴 Qualifier for Celtic Games<br>
-          🔗 <a href="https://www.entrycentral.com/festival/4264" target="_blank">Event Information</a>
-        </li>
-      </ul>
-    </section>
-    <section class="highlight">
-      <h2>🙌 Join Nicola’s 70.3 Challenge – Sunday 13th July</h2>
-      <p>
-        After having to step back from Lakesman due to circumstances beyond her control, Nicola has shown real determination by planning her own 70.3 event. She’d welcome anyone who wants to join for a swim, bike, run, or just to meet at the finish.
-      </p>
-      <p>
-        If you’re interested in taking part or want more details, <a href="https://www.facebook.com/share/p/196HAxUczX/" target="_blank">see Nicola’s Facebook post</a>.
-      </p>
-    </section>
-
-    <div class="whatsapp-highlight">
-      <p>💬 <strong>Not in the WhatsApp Community yet?</strong><br>
-      Join our all-in-one TriBridges WhatsApp Community to access race-specific chats, women’s-only discussions, event planning, and ride/run coordination—all in one place.<br>
-      👉 <a href="https://chat.whatsapp.com/LJCmVxMOnD0DFzBC3niTte" target="_blank">Click here to join the WhatsApp Community</a></p>
-    </div>
-
-    <section>
-      <h2>🔗 Quick Links</h2>
-      <ul>
-        <li>📱 <a href="https://chat.whatsapp.com/LJCmVxMOnD0DFzBC3niTte">Join our WhatsApp Community</a></li>
-        <li>📘 <a href="https://www.facebook.com/groups/2256266274676317/?ref=share">Facebook Community</a></li>
-        <li>📲 <a href="https://spond.com/invite/GXBWF">Spond App (TriBridgesGXBWF)</a></li>
-        <li>📤 <a href="mailto:comms@tribridges.co.uk?subject=Newsletter%20Submission">Submit race stories/photos</a></li>
-      </ul>
-    </section>
+    </main>
 
     <footer>
-      TriBridges 2025 | <a href="mailto:comms@tribridges.co.uk">Send us your feedback or news: comms@tribridges.co.uk</a><br>
-      💬 Prefer WhatsApp? <a href="https://chat.whatsapp.com/LJCmVxMOnD0DFzBC3niTte" target="_blank">Share your story in the WhatsApp group!</a>
+      <p>
+        <a href="#top" class="back-to-top">⬆ Back to top</a>
+        • © TriBridges
+      </p>
     </footer>
   </div>
+
+  <script>
+    // Respect reduced motion for all scripted animations
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Progressive image reveal
+    document.querySelectorAll('img').forEach(img => {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', () => img.classList.add('loaded'), { once:true });
+        img.addEventListener('error', () => img.classList.add('loaded'), { once:true }); // fail-safe
+      }
+    });
+
+    // Intersection Observer to reveal sections
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      const revealEls = document.querySelectorAll('.swim-section, .race-section, .event-item, #shoutoutsContainer div, .whatsapp-highlight, .results-cta, .discount-body, .party-cta');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      revealEls.forEach(el => obs.observe(el));
+    } else {
+      // No animations: show immediately
+      document.querySelectorAll('.swim-section, .race-section, .event-item, #shoutoutsContainer div, .whatsapp-highlight, .results-cta, .discount-body, .party-cta').forEach(el => {
+        el.classList.add('visible');
+      });
+    }
+
+    // Smooth-scroll fix for keyboard users: move focus to target after hash navigation
+    function focusTargetFromHash() {
+      const id = location.hash && location.hash.slice(1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) el.setAttribute('tabindex', '-1'), el.focus({ preventScroll:true });
+    }
+    window.addEventListener('hashchange', focusTargetFromHash);
+    focusTargetFromHash();
+
+    // ---- Add-to-Calendar (.ics) generator ----
+    document.getElementById('addToCalendar')?.addEventListener('click', () => {
+      // Event: 5 Dec 2025, 18:00–23:59 Europe/London (GMT on that date)
+      const dtStart = '20251205T180000Z'; // Dec 5, 2025 18:00 UTC (UK is GMT in Dec)
+      const dtEnd   = '20251205T235900Z'; // "onwards" -> set to 23:59
+      const summary = 'TriBridges Christmas Party';
+      const location = 'Louis Browns, function suite';
+      const description = [
+        'Let’s come together, reflect on the remarkable year we’ve had, and celebrate the exceptional achievements of our members.',
+        'RSVP on Spond: https://spond.com/invite/GXBWF'
+      ].join('\\n');
+
+      const uid = `tribridges-christmas-${Date.now()}@tribridges.co.uk`;
+      const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+      const ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//TriBridges//Events//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        `UID:${uid}`,
+        `DTSTAMP:${now}`,
+        `DTSTART:${dtStart}`,
+        `DTEND:${dtEnd}`,
+        `SUMMARY:${summary}`,
+        `LOCATION:${location}`,
+        'STATUS:CONFIRMED',
+        'TRANSP:OPAQUE',
+        `DESCRIPTION:${description}`,
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\\r\\n');
+
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'TriBridges-Christmas-Party-2025.ics';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    });
+  </script>
 </body>
 </html>
