@@ -605,7 +605,7 @@
         <div class="discount-body">
           <h3>British Triathlon Reward Zone</h3>
           <p>Amazing discounts on a large range of brands and products.</p>
-          <!-- TODO: replace '#' with your exact portal URL if different -->
+          <!-- TODO: replace 'https://britishtriathlon.myezrewards.com/p/british-triathlon' with your exact portal URL if different -->
           <p><a href="#" class="discount-code">Open Reward Zone</a></p>
         </div>
       </section>
@@ -662,51 +662,7 @@
     window.addEventListener('hashchange', focusTargetFromHash);
     focusTargetFromHash();
 
-    // ---- Add-to-Calendar (.ics) generator ----
-    document.getElementById('addToCalendar')?.addEventListener('click', () => {
-      // Event: 5 Dec 2025, 18:00–23:59 Europe/London (GMT on that date)
-      const dtStart = '20251205T180000Z'; // Dec 5, 2025 18:00 UTC (UK is GMT in Dec)
-      const dtEnd   = '20251205T235900Z'; // "onwards" -> set to 23:59
-      const summary = 'TriBridges Christmas Party';
-      const location = 'Louis Browns, function suite';
-      const description = [
-        'Let’s come together, reflect on the remarkable year we’ve had, and celebrate the exceptional achievements of our members.',
-        'RSVP on Spond: https://spond.com/invite/GXBWF'
-      ].join('\\n');
 
-      const uid = `tribridges-christmas-${Date.now()}@tribridges.co.uk`;
-      const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-
-      const ics = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'PRODID:-//TriBridges//Events//EN',
-        'CALSCALE:GREGORIAN',
-        'METHOD:PUBLISH',
-        'BEGIN:VEVENT',
-        `UID:${uid}`,
-        `DTSTAMP:${now}`,
-        `DTSTART:${dtStart}`,
-        `DTEND:${dtEnd}`,
-        `SUMMARY:${summary}`,
-        `LOCATION:${location}`,
-        'STATUS:CONFIRMED',
-        'TRANSP:OPAQUE',
-        `DESCRIPTION:${description}`,
-        'END:VEVENT',
-        'END:VCALENDAR'
-      ].join('\\r\\n');
-
-      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'TriBridges-Christmas-Party-2025.ics';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 2000);
-    });
   </script>
 </body>
 </html>
