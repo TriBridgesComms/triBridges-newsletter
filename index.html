@@ -50,14 +50,7 @@
       text-rendering: optimizeLegibility;
     }
 
-    .container {
-      max-width: 640px;
-      margin: 20px auto;
-      padding: 15px;
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+    .container { max-width: 640px; margin: 20px auto; padding: 15px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); }
 
     /* Anchor offset so headings aren't hidden after jump */
     [id] { scroll-margin-top: 14px; }
@@ -88,11 +81,7 @@
       flex-wrap: wrap;
       gap: 10px 14px;
     }
-    .quick-links a {
-      text-decoration: none;
-      color: var(--accent);
-      font-weight: 500;
-    }
+    .quick-links a { text-decoration: none; color: var(--accent); font-weight: 500; }
     .quick-links a:hover,
     .back-to-links:hover { text-decoration: underline; color: var(--accent-2); }
 
@@ -130,13 +119,7 @@
     .swim-button.secondary:hover { background:#034768; }
 
     .back-to-links,
-    .back-to-top {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: .9em;
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .back-to-top { display: inline-block; margin-top: 12px; font-size: .9em; color: var(--accent); text-decoration: none; }
 
     /* Utility */
     .divider { border-top: 1px solid var(--border); margin: 2em 0; }
@@ -156,14 +139,7 @@
     img.loaded { opacity: 1; transform: translateY(0); }
 
     /* Sections & cards */
-    .highlight {
-      background: #f9f9f9;
-      border-left: 4px solid #ccc;
-      border-radius: 6px;
-      padding: 12px;
-      margin-top: 1em;
-      opacity: 1; transform: none;
-    }
+    .highlight { background: #f9f9f9; border-left: 4px solid #ccc; border-radius: 6px; padding: 12px; margin-top: 1em; opacity: 1; transform: none; }
 
     .swim-section,
     .race-section,
@@ -172,11 +148,7 @@
     .whatsapp-highlight,
     .results-cta,
     .discount-body,
-    .party-cta {
-      opacity: 0;
-      transform: translateY(15px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
+    .party-cta { opacity: 0; transform: translateY(15px); transition: opacity .6s ease, transform .6s ease; }
     .visible { opacity: 1 !important; transform: translateY(0) !important; }
 
     .swim-section { background: #fdf3f3; border-left: 4px solid var(--warn); border-radius: 6px; padding: 16px; }
@@ -192,19 +164,8 @@
     #shoutoutsContainer div { background: #f9f9f9; border-left: 4px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 6px; }
 
     /* Swim options layout */
-    .swim-options {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin: 8px 0 4px;
-    }
-    .swim-option {
-      background:#fff;
-      border:1px solid #dfeaf5;
-      border-left:4px solid #6fb3e8;
-      border-radius:6px;
-      padding:12px;
-    }
+    .swim-options { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 8px 0 4px; }
+    .swim-option { background:#fff; border:1px solid #dfeaf5; border-left:4px solid #6fb3e8; border-radius:6px; padding:12px; }
 
     /* WhatsApp */
     .whatsapp-highlight { background: #e7f9ef; border-left: 4px solid var(--ok); border-radius: 6px; padding: 12px; margin-top: 1em; }
@@ -213,17 +174,7 @@
     .discount-header { background: var(--brand-blue); color: #fff; padding: 8px 12px; border-radius: 6px 6px 0 0; font-weight: 700; }
     .discount-body { background: #eaf4ff; padding: 12px; border-radius: 0 0 6px 6px; border: 1px solid var(--brand-blue); border-top: none; word-break: break-word; }
     .discount-separator { border-top: 1px solid #cdd9e5; margin: 14px 0; }
-    .discount-code {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin: 6px 0;
-      text-decoration: none;
-    }
+    .discount-code { display: inline-block; background: var(--accent); color: #fff; padding: 8px 14px; border-radius: 6px; font-size: 1.05rem; font-weight: 700; margin: 6px 0; text-decoration: none; }
     .discount-code:hover { background: var(--accent-2); }
 
     /* Results CTA */
@@ -240,26 +191,9 @@
       border-radius: 10px;
       padding: 18px;
     }
-    .party-cta h2 {
-      color: var(--festive-green);
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      flex-wrap: wrap;
-    }
-    .party-meta {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 6px 16px;
-      margin: 8px 0 10px;
-    }
-    .party-meta div {
-      background:#ffffff;
-      border:1px solid #f1e3d8;
-      border-radius: 8px;
-      padding: 8px 10px;
-    }
+    .party-cta h2 { color: var(--festive-green); margin-top: 0; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+    .party-meta { display: grid; grid-template-columns: 1fr; gap: 6px 16px; margin: 8px 0 10px; }
+    .party-meta div { background:#ffffff; border:1px solid #f1e3d8; border-radius: 8px; padding: 8px 10px; }
     .party-actions { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn-rsvp { --btn-bg: var(--festive-green); }
     .btn-rsvp:hover { background: var(--festive-green-d); }
@@ -303,7 +237,7 @@
   <div class="container" id="top">
     <header>
       <h1>🗞️ TriBridges Monthly</h1>
-      <p>The August Recap – Racing, Silverware &amp; CHRISTMAS ALREADY?!</p>
+      <p>The August Recap – More Silverware, racing across Europe, Gravel, MTB &amp; CHRISTMAS ALREADY?!</p>
     </header>
 
     <!-- Quick Links -->
@@ -327,32 +261,28 @@
 
     <main id="main" tabindex="-1">
       <!-- Christmas Party CTA -->
-      <<section id="christmas-party" class="party-cta visible" aria-labelledby="party-heading">
-  <h2 id="party-heading">🎄 TriBridges Christmas Party — You’re Invited!</h2>
-  <p>Let’s come together, reflect on the remarkable year we’ve had, and celebrate the exceptional achievements of our members. Join us for an evening filled with great food, drinks, great company, and inspiring stories.</p>
+      <section id="christmas-party" class="party-cta visible" aria-labelledby="party-heading">
+        <h2 id="party-heading">🎄 TriBridges Christmas Party — You’re Invited!</h2>
+        <p>Let’s come together, reflect on the remarkable year we’ve had, and celebrate the exceptional achievements of our members. Join us for an evening filled with great food, drinks, great company, and inspiring stories.</p>
 
-  <div class="party-meta" role="list">
-    <div role="listitem"><strong>📅 Date:</strong> Fri, <time datetime="2025-12-05">5 Dec 2025</time></div>
-    <div role="listitem"><strong>⏰ Time:</strong> 18:00 onwards</div>
-    <div role="listitem"><strong>📍 Location:</strong> Louis Browns – Dalgety Bay</div>
-  </div>
+        <div class="party-meta" role="list">
+          <div role="listitem"><strong>📅 Date:</strong> Fri, <time datetime="2025-12-05">5 Dec 2025</time></div>
+          <div role="listitem"><strong>⏰ Time:</strong> 18:00 onwards</div>
+          <div role="listitem"><strong>📍 Location:</strong> Louis Browns – Dalgety Bay</div>
+        </div>
 
-  <div class="party-actions">
-    <!-- Replace #SPOND_EVENT_URL with your actual Spond EVENT link -->
-    <a class="button btn-rsvp" href="https://spond.com/client/sponds/088E7C98B8C645CBA298BF7BBC7BAC5B" target="_blank" rel="noopener noreferrer">
-      👉 View event on Spond
-    </a>
+        <div class="party-actions">
+          <a class="button btn-rsvp" href="https://spond.com/client/sponds/088E7C98B8C645CBA298BF7BBC7BAC5B" target="_blank" rel="noopener noreferrer">
+            👉 View event on Spond
+          </a>
+          <a class="button btn-ics"
+             href="https://ical.marudot.com/ShareQRPage?key=de2395ef-b77f-4aac-bbef-d48fac6fd506"
+             target="_blank" rel="noopener noreferrer">
+            📅 Add to calendar
+          </a>
+        </div>
 
-    <!-- Direct hosted ICS link -->
-    <a class="button btn-ics" 
-       href="https://ical.marudot.com/ShareQRPage?key=de2395ef-b77f-4aac-bbef-d48fac6fd506" 
-       target="_blank" rel="noopener noreferrer">
-      📅 Add to calendar
-    </a>
-  </div>
-
-  <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
-</section>
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
       </section>
 
       <div class="divider" role="separator" aria-hidden="true"></div>
@@ -394,19 +324,13 @@
           <div class="swim-option">
             <h3>💳 Direct Debit — £25/month</h3>
             <p>Unlimited sessions. Turn up and swim, no booking required.</p>
-            <a
-              href="https://pay.gocardless.com/billing/static/collect-customer-details?id=BRF01K1JWMB2NAFBZY5W7TAPBHHKJ9G7&initial=%2Fcollect-customer-details"
-              target="_blank" rel="noopener noreferrer"
-              class="swim-button main">Sign Up for Direct Debit</a>
+            <a href="https://pay.gocardless.com/billing/static/collect-customer-details?id=BRF01K501B408V09SNV6P39T8VHHX8BM&initial=%2Fcollect-customer-details&fbclid=IwT01FWAMxgH9leHRuA2FlbQIxMAABHoaFOZPZCvPdezKk9ME2UB1S5LZUhVqyHfEBK4vqWabBy1TG-boOjT3Q4U_2_aem_W8vzNq7QoPY4zgOxXI4rrg" target="_blank" rel="noopener noreferrer" class="swim-button main">Sign Up for Direct Debit</a>
           </div>
 
           <div class="swim-option">
             <h3>🏊 PAYG — £5.34/session</h3>
             <p>Book individual sessions via Spond.</p>
-            <a
-              href="https://spond.com/client/groups/2576C43FF4D848A491D8723C0AF0F64D"
-              target="_blank" rel="noopener noreferrer"
-              class="swim-button secondary">Book PAYG Session</a>
+            <a href="https://spond.com/client/groups/2576C43FF4D848A491D8723C0AF0F64D" target="_blank" rel="noopener noreferrer" class="swim-button secondary">Book PAYG Session</a>
           </div>
         </div>
 
@@ -433,9 +357,9 @@
           </ul>
           <p><a href="https://www.whatsmytimeresults.co.uk/results.aspx?CId=17047&RId=6387&dt=1&top=10&EId=8" target="_blank" rel="noopener noreferrer">📊 Full results</a></p>
         </div>
-        <p>✅ Huge well done to<strong> Jake</strong> in ticking off his first multisport event!</p>
-        <p>👏 Big thanks to <strong>Chris Falconer</strong> for supporting on the day and snapping some great photos.</p>
-        <p>💪 Commiserations to <strong>Claire F</strong> who had to pull out of the Aquabike — back stronger soon!</p>
+        <p>✅ Huge well done to <strong>Jake</strong> in ticking off his first multisport event!</p>
+        <p>👏 Big thanks to <strong>Chris</strong> for supporting on the day and snapping some great photos.</p>
+        <p>💪 Commiserations to <strong>Claire</strong> who had to pull out of the Aquabike — back stronger soon!</p>
         <img src="https://i.imgur.com/dnfk9Xb.jpeg" alt="TriBridges athletes at Lochore Triathlon Festival" loading="lazy" />
         <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
       </section>
@@ -446,51 +370,36 @@
 
         <article class="race-section">
           <h3>Ironman Sweden — Kalmar 🇸🇪💪</h3>
-          <p><strong>Charlie Crawford</strong> took on his <strong>first full-distance Ironman</strong> in Kalmar
-            and delivered an <strong>outstanding performance</strong>, especially impressive after overcoming
-            injury setbacks in the run-up. A fantastic debut cheered on by a huge Swedish crowd.</p>
+          <p><strong>Charlie Crawford</strong> took on his <strong>first full-distance Ironman</strong> in Kalmar and delivered an <strong>outstanding performance</strong>, especially impressive after overcoming injury setbacks in the run-up. A fantastic debut cheered on by a huge Swedish crowd.</p>
           <img src="https://i.imgur.com/tEHSIH2.jpeg" alt="Charlie Crawford at Ironman Kalmar" loading="lazy" />
           <p><a href="https://www.facebook.com/share/p/1Z2LwnagPZ/" target="_blank" rel="noopener noreferrer">📖 Read Charlie’s full race report</a></p>
         </article>
 
         <article class="race-section">
           <h3>Ironman Switzerland — Thun 🇨🇭</h3>
-          <p>In <strong>2025</strong>, <strong>Keith</strong> delivered a fantastic performance at Ironman Switzerland,
-            finishing in <strong>12:03:36</strong>. The beautiful course packs in around <strong>2,000 m of elevation on the bike</strong>,
-            making it a true test of endurance across the Swiss landscape.</p>
+          <p>In <strong>2025</strong>, <strong>Keith</strong> delivered a fantastic performance at Ironman Switzerland, finishing in <strong>12:03:36</strong>. The beautiful course packs in around <strong>2,000 m of elevation on the bike</strong>, making it a true test of endurance across the Swiss landscape.</p>
           <img src="https://i.imgur.com/x1cHU10.jpeg" alt="Keith at Ironman Switzerland – Thun" loading="lazy" />
           <p><a href="https://www.facebook.com/share/p/19wap6sNoy/" target="_blank" rel="noopener noreferrer">📖 Read Keith’s race report</a></p>
         </article>
 
         <article class="race-section">
           <h3>Norseman Xtreme Triathlon 🇳🇴🐉</h3>
-          <p><strong>Claire Weller</strong> secured a superb <strong>4th place in an elite field</strong> at one of the
-            world’s most iconic races. Reflecting afterwards, she said:
-            <em>“Norseman 100% pushed me to my limits. It was a challenging but amazing experience.
-            Norway is a beautiful country and racing there was a privilege.”</em></p>
-          <p>Never one to shy away from gruelling challenges, Claire now turns her focus to
-            <strong>Ironman Wales</strong> next month — known as <em>“the dragon”</em> and considered one of the
-            toughest Ironman courses in the world.</p>
+          <p><strong>Claire Weller</strong> secured a superb <strong>4th place in an elite field</strong> at one of the world’s most iconic races. Reflecting afterwards, she said: <em>“Norseman 100% pushed me to my limits. It was a challenging but amazing experience. Norway is a beautiful country and racing there was a privilege.”</em></p>
+          <p>Never one to shy away from gruelling challenges, Claire now turns her focus to <strong>Ironman Wales</strong> next month — known as <em>“the dragon”</em> and considered one of the toughest Ironman courses in the world.</p>
           <p><strong>💛 Good luck Claire from everyone at TriBridges!</strong></p>
           <img src="https://i.imgur.com/qMgATFN.jpeg" alt="Claire Weller at Norseman Xtreme Triathlon" loading="lazy" />
         </article>
 
         <article class="race-section">
           <h3>Scottish Middle Distance Champs — Aberfeldy 🏆🏴</h3>
-          <p><strong>Heather Elder</strong> delivered a commanding performance at Aberfeldy, taking the win and
-            earning the title of <strong>Scottish Middle Distance Champion</strong>. A brilliant day for both Heather
-            and the club.</p>
+          <p><strong>Heather Elder</strong> delivered a commanding performance at Aberfeldy, taking the win and earning the title of <strong>Scottish Middle Distance Champion</strong>. A brilliant day for both Heather and the club.</p>
           <img src="https://i.imgur.com/5VA2HC1.jpeg" alt="Heather Elder at Aberfeldy Middle Distance Champs" loading="lazy" />
           <p><a href="https://www.facebook.com/share/p/16tHt7jj3k/" target="_blank" rel="noopener noreferrer">📖 Read Heather’s full race report</a></p>
         </article>
 
         <article class="race-section">
           <h3>Itera-Lite 2025 — Scotland 🌍💛</h3>
-          <p>The <strong>2025 Itera-Lite in Scotland</strong> was a 330km non-stop adventure of
-            kayaking, mountain biking, trekking, abseiling, and orienteering — battled through
-            searing heat, monsoon rains, and sleep deprivation. <strong>Alan Affleck and his teammate John</strong>
-            raced in memory of their friend Sarah, turning it into a story of
-            <strong>friendship and resilience</strong>.</p>
+          <p>The <strong>2025 Itera-Lite in Scotland</strong> was a 330km non-stop adventure of kayaking, mountain biking, trekking, abseiling, and orienteering — battled through searing heat, monsoon rains, and sleep deprivation. <strong>Alan Affleck and his teammate John</strong> raced in memory of their friend Sarah, turning it into a story of <strong>friendship and resilience</strong>.</p>
           <img src="https://i.imgur.com/YPXCXCg.jpeg" alt="Alan Affleck at Itera-Lite 2025 Adventure Race" loading="lazy" />
           <p>
             <a href="https://alan9c13c170c3e.blog/2025-itera-lite/" target="_blank" rel="noopener noreferrer">📖 Read Alan’s race report</a> |
@@ -500,9 +409,7 @@
 
         <article class="race-section">
           <h3>Restless Xtreme Gravel XTri — Scotland 🇬🇧</h3>
-          <p>On <strong>23 August 2025</strong>, <strong>Gill</strong> completed the inaugural Restless Xtreme Gravel XTri —
-            a brand new off-road challenge blending gravel riding with triathlon spirit. Riders took on
-            rugged Scottish trails, steep climbs, and fast gravel descents in a demanding test of endurance.</p>
+          <p>On <strong>23 August 2025</strong>, <strong>Gill</strong> completed the inaugural Restless Xtreme Gravel XTri — a brand new off-road challenge blending gravel riding with triathlon spirit. Riders took on rugged Scottish trails, steep climbs, and fast gravel descents in a demanding test of endurance.</p>
           <img src="https://i.imgur.com/5ygmMwc.jpeg" alt="Gill at Restless Xtreme Gravel XTri" loading="lazy" />
           <p>
             <a href="https://www.facebook.com/share/p/172UHTcPSZ/" target="_blank" rel="noopener noreferrer">📖 Read Gill’s race report</a> |
@@ -519,30 +426,27 @@
 
       <div class="divider" role="separator" aria-hidden="true"></div>
 
-<!-- Coaches' Corner -->
-<section id="coaches-corner">
-  <h2>🧠 Coaches’ Corner</h2>
-  <div class="highlight">
-    <blockquote style="margin: 0 0 12px; font-style: italic;">
-      “In multisport, the finish line is never the true goal. The real win is showing up, doing the work, and discovering the stronger athlete inside you each day."
-    </blockquote>
-    <hr style="border: 0; border-top: 1px solid #e2e2e2; margin: 12px 0;">
-    <blockquote style="margin: 0; font-style: italic;">
-      "Consistency beats intensity. It’s not the single heroic session that builds a triathlete, but the steady rhythm of training, recovery, and trust in the process."
-    </blockquote>
-  </div>
-  <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
-</section>
+      <!-- Coaches' Corner -->
+      <section id="coaches-corner">
+        <h2>🧠 Coaches’ Corner</h2>
+        <div class="highlight">
+          <blockquote style="margin: 0 0 12px; font-style: italic;">
+            “In multisport, the finish line is never the true goal. The real win is showing up, doing the work, and discovering the stronger athlete inside you each day."
+          </blockquote>
+          <hr style="border: 0; border-top: 1px solid #e2e2e2; margin: 12px 0;">
+          <blockquote style="margin: 0; font-style: italic;">
+            "Consistency beats intensity. It’s not the single heroic session that builds a triathlete, but the steady rhythm of training, recovery, and trust in the process."
+          </blockquote>
+        </div>
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
 
       <div class="divider" role="separator" aria-hidden="true"></div>
-
 
       <!-- Upcoming Tri Events -->
       <section id="upcoming-events" aria-labelledby="events-heading">
         <h2 id="events-heading">📅 Upcoming Triathlon Events</h2>
         <div id="upcomingEventsContainer">
-
-
           <div class="event-item visible">
             <h4>Aviemore Cross Triathlon (Scottish Champs) — 14 Sep 2025, Badaguish (Aviemore)</h4>
             <p>Off-road cross triathlon — short &amp; long Champs races, plus relay</p>
@@ -557,7 +461,6 @@
             <h4>Ironman Barcelona — 5 Oct 2025, Calella, Spain</h4>
             <p>Several TriBridges members racing</p>
           </div>
-
         </div>
         <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
       </section>
@@ -605,7 +508,6 @@
         <div class="discount-body">
           <h3>British Triathlon Reward Zone</h3>
           <p>Amazing discounts on a large range of brands and products.</p>
-          <!-- TODO: replace 'https://britishtriathlon.myezrewards.com/p/british-triathlon' with your exact portal URL if different -->
           <p><a href="https://britishtriathlon.myezrewards.com/p/british-triathlon" class="discount-code">Open Reward Zone</a></p>
         </div>
       </section>
@@ -625,11 +527,10 @@
 
     // Progressive image reveal
     document.querySelectorAll('img').forEach(img => {
-      if (img.complete) {
-        img.classList.add('loaded');
-      } else {
+      if (img.complete) img.classList.add('loaded');
+      else {
         img.addEventListener('load', () => img.classList.add('loaded'), { once:true });
-        img.addEventListener('error', () => img.classList.add('loaded'), { once:true }); // fail-safe
+        img.addEventListener('error', () => img.classList.add('loaded'), { once:true });
       }
     });
 
@@ -646,13 +547,12 @@
       }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
       revealEls.forEach(el => obs.observe(el));
     } else {
-      // No animations: show immediately
       document.querySelectorAll('.swim-section, .race-section, .event-item, #shoutoutsContainer div, .whatsapp-highlight, .results-cta, .discount-body, .party-cta').forEach(el => {
         el.classList.add('visible');
       });
     }
 
-    // Smooth-scroll fix for keyboard users: move focus to target after hash navigation
+    // Smooth-scroll focus management
     function focusTargetFromHash() {
       const id = location.hash && location.hash.slice(1);
       if (!id) return;
@@ -661,8 +561,6 @@
     }
     window.addEventListener('hashchange', focusTargetFromHash);
     focusTargetFromHash();
-
-
   </script>
 </body>
 </html>
