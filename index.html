@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TriBridges Monthly – September Recap</title>
+
+  <!-- Font (optional): remove if you prefer system fonts only -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <meta name="color-scheme" content="light" />
+  <style>
+    :root{
+      --bg:#f7f7f7;
+      --text:#222;
+      --muted:#888;
+      --ink-1:#032f43;
+      --ink-2:#043952;
+      --ink-3:#045985;
+      --accent:#045985;
+      --accent-2:#033f61;
+      --border:#e2e2e2;
+      --card:#fff;
+      --shadow:0 2px 8px rgba(0,0,0,.05);
+      --radius:8px;
+      --pad:16px;
+      --brand-yellow:#f4b400;
+      --brand-yellow-d:#d99900;
+      --brand-blue:#007acc;
+      --ok:#25d366;
+      --warn:#e63946;
+      --info:#3ca9dd;
+
+      /* Festive tokens */
+      --festive-green:#0f9d58;
+      --festive-green-d:#0c7f48;
+      --festive-red:#d93025;
+      --snow:#fff7ec;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .container { max-width: 640px; margin: 20px auto; padding: 15px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); }
+
+    /* Anchor offset */
+    [id] { scroll-margin-top: 14px; }
+
+    /* Typography */
+    h1 { font-size: 1.9rem; color: var(--ink-1); margin: 0 0 6px; }
+    header p { margin: 0 0 10px; color: var(--ink-2); }
+    h2 { font-size: 1.3rem; color: var(--ink-2); margin: 1.2em 0 .4em; }
+    h3 { font-size: 1.15rem; color: var(--ink-3); margin: 1em 0 .35em; }
+    h4 { font-size: 1rem; color: var(--ink-3); margin: .6em 0 .25em; }
+    p, li { font-size: 1rem; margin: .5em 0; }
+    .muted { color: var(--muted); }
+
+    /* Quick Links */
+    nav.quick-links {
+      background: #eef9ff;
+      border: 1px solid #cce7f5;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 12px 0 20px;
+      font-size: .95em;
+    }
+    .quick-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+    }
+    .quick-links a { text-decoration: none; color: var(--accent); font-weight: 500; }
+    .quick-links a:hover,
+    .back-to-links:hover { text-decoration: underline; color: var(--accent-2); }
+
+    /* Links & buttons */
+    a { color: var(--accent); }
+    a:focus-visible,
+    .button:focus-visible { outline: 3px solid #9bd1ff; outline-offset: 2px; border-radius: 4px; }
+
+    .button,
+    .cta-button,
+    .swim-button {
+      --btn-bg: var(--brand-yellow);
+      --btn-fg: #fff;
+      display: inline-block;
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: background .2s ease-in-out, transform .05s ease;
+      border: none;
+      line-height: 1.1;
+      cursor: pointer;
+    }
+    .cta-button:hover,
+    .swim-button:hover,
+    .button:hover { background: var(--brand-yellow-d); }
+    .cta-button:active,
+    .swim-button:active,
+    .button:active { transform: translateY(1px); }
+
+    .swim-button.main { --btn-bg: var(--brand-yellow); }
+    .swim-button.secondary { --btn-bg:#045985; }
+    .swim-button.secondary:hover { background:#034768; }
+
+    .back-to-links,
+    .back-to-top { display: inline-block; margin-top: 12px; font-size: .9em; color: var(--accent); text-decoration: none; }
+
+    /* Utility */
+    .divider { border-top: 1px solid var(--border); margin: 2em 0; }
+
+    /* Images */
+    /* Images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 12px auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+
+  /* Fix cropping */
+  object-fit: contain;   /* ensures full photo is visible */
+  background: #f7f7f7;   /* adds clean letterbox effect if needed */
+
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+img.loaded { opacity: 1; transform: translateY(0); }
+
+    /* Reveal-in */
+    .swim-section,
+    .race-section,
+    #shoutoutsContainer div,
+    .whatsapp-highlight,
+    .results-cta,
+    .discount-body,
+    .party-cta,
+    .blue-section,
+    .blue-card { opacity: 0; transform: translateY(15px); transition: opacity .6s ease, transform .6s ease; }
+    .visible { opacity: 1 !important; transform: translateY(0) !important; }
+
+    /* Section cards */
+    .highlight { background: #f9f9f9; border-left: 4px solid #ccc; border-radius: 6px; padding: 12px; margin-top: 1em; opacity: 1; transform: none; }
+
+    .race-section { background: #f6faff; border-left: 4px solid var(--info); border-radius: 6px; padding: 16px; margin-bottom: 1em; }
+    .race-highlight { background: #ffeaea; border-left: 4px solid var(--warn); padding: 14px; border-radius: 6px; margin-top: 10px; }
+
+    /* Podium Section - Gold Celebration Style */
+.podium-highlight {
+  background: #fffdf5;
+  border: 2px solid #f4b400;
+  border-radius: 8px;
+  padding: 18px;
+  margin: 24px 0;
+  box-shadow: 0 2px 6px rgba(244, 180, 0, 0.25);
+}
+
+.podium-highlight h2 {
+  color: #b38600;
+  margin-top: 0;
+}
+
+.podium-blurb {
+  font-style: italic;
+  color: #444;
+  margin-bottom: 1.2em;
+  line-height: 1.5;
+}
+
+.podium-tally {
+  display: grid;
+  gap: 12px;
+}
+
+/* Medal cards */
+.podium-item {
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+/* Medal-specific styles */
+.podium-gold {
+  background: linear-gradient(#fff8d9, #fffdf5);
+  border: 1px solid #f4c542;
+  color: #8a6d00;
+}
+.discount-red {
+  background: linear-gradient(#ffeaea, #fffdf5);
+  border: 2px solid #e63946;
+  color: #a7001d;
+
+}
+
+
+.podium-silver {
+  background: linear-gradient(#f5f6f7, #ffffff);
+  border: 1px solid #c5c9cc;
+  color: #555;
+}
+
+.podium-bronze {
+  background: linear-gradient(#ffe8d9, #fffdf5);
+  border: 1px solid #d28b5a;
+  color: #7a3e00;
+}
+
+    /* Shoutouts list cards (kept from August theme) */
+    #shoutoutsContainer div { background: #f9f9f9; border-left: 4px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 6px; }
+
+    /* Subtle blue “card” look for Swim/Coaches */
+    .blue-section { background:#f6faff; border-radius:6px; padding:16px; margin:20px 0; }
+    .blue-card { background:#eaf4ff; border-radius:6px; padding:14px; }
+
+    /* Swim options (kept simple – 1 col; can switch to 2 on wide screens if you like) */
+    .swim-options { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 8px 0 4px; }
+
+    /* WhatsApp */
+    .whatsapp-highlight { background: #e7f9ef; border-left: 4px solid var(--ok); border-radius: 6px; padding: 12px; margin-top: 1em; }
+
+    /* Discounts */
+    .discount-header { background: var(--brand-blue); color: #fff; padding: 8px 12px; border-radius: 6px 6px 0 0; font-weight: 700; }
+    .discount-body { background: #eaf4ff; padding: 12px; border-radius: 0 0 6px 6px; border: 1px solid var(--brand-blue); border-top: none; word-break: break-word; }
+    .discount-code { display: inline-block; background: var(--accent); color: #fff; padding: 8px 14px; border-radius: 6px; font-weight: 700; }
+
+    /* Results CTA */
+    .results-cta { background: #fef7e6; border-left: 4px solid var(--brand-yellow); border-radius: 6px; padding: 16px; margin: 20px 0; text-align: center; }
+    .results-cta h2 { margin: 0 0 .2em; color: #b35a00; }
+
+    /* Christmas Party CTA */
+    .party-cta {
+      background:
+        radial-gradient(400px 120px at 100% -20%, rgba(255,255,255,.7), transparent 60%),
+        var(--snow);
+      border: 1px solid #fae2cf;
+      border-left: 6px solid var(--festive-green);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .party-cta h2 { color: var(--festive-green); margin-top: 0; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+    .party-meta { display: grid; grid-template-columns: 1fr; gap: 6px 16px; margin: 8px 0 10px; }
+    .party-meta div { background:#ffffff; border:1px solid #f1e3d8; border-radius: 8px; padding: 8px 10px; }
+    .party-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-rsvp { --btn-bg: var(--festive-green); }
+    .btn-rsvp:hover { background: var(--festive-green-d); }
+    .btn-ics { --btn-bg: var(--festive-red); }
+    .btn-ics:hover { background: #b2251c; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      img, .swim-section, .race-section, .event-item, #shoutoutsContainer div, .whatsapp-highlight, .results-cta, .discount-body, .party-cta, .blue-section, .blue-card {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.65rem; }
+      h2 { font-size: 1.2rem; }
+      h3 { font-size: 1.08rem; }
+      p, li { font-size: .96rem; }
+      .party-meta { grid-template-columns: 1fr; }
+    }
+
+    /* a11y */
+    .visually-hidden {
+      position:absolute !important; clip:rect(1px,1px,1px,1px);
+      padding:0; border:0; height:1px; width:1px; overflow:hidden; white-space:nowrap;
+    }
+  </style>
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Skip to content</a>
+
+  <div class="container" id="top">
+    <header>
+      <h1>🗞️ TriBridges Monthly</h1>
+<p>
+<strong>October Recap</strong> — Ironman Barcelona Highlights, Member shoutouts. Don’t miss your last chance to log 2025 results, and act fast for a 40% Nopinz discount!
+</p>
+
+    </header>
+
+    <!-- Quick Links -->
+    <nav class="quick-links" aria-label="Quick links">
+      <p><strong>📑 Quick Links:</strong></p>
+      <ul>
+        <li><a href="#chairman">👋 Chairman’s Opening</a></li>
+        <!--<li><a href="#agm">🗓 AGM</a></li> -->
+        <li><a href="#podium">🥇 Podium Tally</a></li>
+        <li><a href="#race-highlights">🗞 Race Highlights</a></li>
+        <li><a href="#shoutouts">🙌 Shoutouts</a></li>
+        <li><a href="#swim">🏊 Pool Swim</a></li>
+        <li><a href="#xmas">🎄 Christmas Party</a></li>
+        <li><a href="#coaches">🧠 Coaches’ Corner</a></li>
+        <li><a href="#whatsapp">💬 WhatsApp</a></li>
+        <li><a href="#triscot">🎟 TS Membership</a></li>
+        <li><a href="#discounts">🏷 Discounts</a></li>
+        <li><a href="#eoy">📸 End-of-Year</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <!-- Chairman -->
+      <section id="chairman" class="highlight visible" aria-labelledby="chairman-heading">
+        <h2 id="chairman-heading">👋 Chairman’s Opening</h2>
+        <p>Marcs Opening
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <!-- AGM -->
+      <!--
+      <section id="agm" class="race-section visible" aria-labelledby="agm-heading">
+        <h2 id="agm-heading">🗓️ AGM – Save the Date</h2>
+        <p><strong>Date/Time/Venue:</strong> <em>[TBC]</em></p>
+        <p class="muted">Spond link to the event (view page, not join) will be added here.</p>
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
+  -->
+      <!-- Podium Tally -->
+<section id="podium" class="podium-highlight visible" aria-labelledby="podium-heading">
+  <h2 id="podium-heading">🥇 Club Podium Medal Count (YTD)</h2>
+  
+  <p class="podium-blurb">
+  TriBridges athletes continue to impress across events of all distances.  
+  To recognise these achievements, we’re keeping a tally of club podium finishes throughout the year.  
+  It’s a simple way to celebrate the depth of talent in our community — so remember to log your results and keep the count growing!
+</p>
+
+  <div class="podium-tally" role="list" aria-label="Medals">
+    <div class="podium-item podium-gold" role="listitem">🥇 Gold — <strong>5</strong></div>
+    <div class="podium-item podium-silver" role="listitem">🥈 Silver — <strong>8</strong></div>
+    <div class="podium-item podium-bronze" role="listitem">🥉 Bronze — <strong>4</strong></div>
+  </div>
+
+  <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+</section>
+
+<!-- Race Highlights -->
+<section id="race-highlights" aria-labelledby="race-highlights-heading">
+  <h2 id="race-highlights-heading">🗞️ Race Highlights</h2>
+
+ <!-- Scottish Standard Triathlon Championships -->
+<section id="race-highlights" aria-labelledby="race-highlights-heading">
+  <article class="race-section visible">
+    <h2>IRONMAN BARCELONA 🇪🇸</h2>
+    <p>Big day on the Costa del Maresme with multiple TriBridges athletes taking on the fast Barcelona course.</p>
+
+    <!-- Barry Section -->
+    <section class="athlete-highlight">
+      <h4>Barry [10:06:12]</h4>
+      <p>Barry took on Ironman Barcelona with outstanding grit and smart preparation, overcoming 2m swells in the swim and tough winds on the bike. Despite losing his goggles and battling the chop, he powered through to finish the bike 48 minutes faster than last year. The run was hot and relentless, with cramps threatening late on, but Barry managed his fuel, stretched when needed, and pushed through with crowd support. He crossed the finish line in <strong>10:06:12</strong>—a massive 53-minute personal best, just missing the sub-10 goal, showing what hard work and determination can achieve!</p>
+      <img loading="lazy" src="https://res.cloudinary.com/dhumuwm8k/image/upload/v1761912741/barry_im_voelp8.jpg" alt="Barry IM Barca" />
+      <p>
+        <a href="https://www.facebook.com/groups/2256266274676317/posts/3770847823218147" target="_blank" rel="noopener noreferrer">
+          Read Barry’s full race reflections on Facebook
+        </a>
+      </p>
+    </section>
+
+    <!-- Scott Section -->
+    <section class="athlete-highlight">
+      <h4>Scott Hutchinson [12:27:02]</h4>
+      <p>
+        After a tough DNF in Hamburg, Scott returned determined—conquering fierce swim conditions to beat last year’s time by 2 minutes. He held strong power numbers on the bike, only slowed by a changed course and headwinds. The run was a real battle, with sickness striking early, forcing a run/walk for much of it. But Scott dug deep to finish, and put the DNF demons to bed. Way to bounce back Scott!
+      </p>
+      <img loading="lazy" src="https://res.cloudinary.com/dhumuwm8k/image/upload/v1761912851/scott_IM_dsczpb.jpg" alt="Scott IM Barcelona" />
+    </section>
+
+<!-- Daniel Section -->
+<section class="athlete-highlight">
+  <h4>Daniel Curran [9:36:47]</h4>
+  <p>
+    Daniel celebrated another unforgettable Ironman experience, finishing his second ever full-distance race in a phenomenal time of <strong>9hr 36min</strong>. This incredible achievement was made possible by outstanding support on course and the guidance of his coach, Billy. <strong>Congratulations on joining the exclusive sub 10hr club Daniel</strong>!
+  </p>
+</section>
+  <img loading="lazy" src="https://res.cloudinary.com/dhumuwm8k/image/upload/v1761914375/DAN_IM_oagxjf.jpg" alt="Daniel IM Barcelona" />
+</section>
+
+<a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+<!-- Shoutouts -->
+<section id="shoutouts" class="highlight visible" aria-labelledby="shoutouts-heading">
+  <h2 id="shoutouts-heading">🙌 Member Shoutouts</h2>
+  <div id="shoutoutsContainer">
+    <div>
+      <h3>Ethan Macleod – Aspiring Coach 🏊‍♂️</h3>
+      <p>
+        The club is delighted to announce another aspiring coach in our ranks as
+        <strong>Ethan Macleod</strong> is currently undertaking his Triathlon Scotland coaching qualifications. We're sure you'll be a great addition to the squad, Ethan!
+      </p>
+    </div>
+    <div>
+      <h3>Barbara-Anne – Highland Fling 🏃‍♀️</h3>
+      <p>
+        Back in September, an early tumble didn’t stop one of our toughest and most resilient members from getting to the finish line - bloodied knees and all. Grit and determination personified — Congrats Barbara, on your <strong>EPIC</strong> 16+ hour effort. Incredible!
+      </p>
+      <p>
+        <img loading="lazy" src="https://res.cloudinary.com/dhumuwm8k/image/upload/v1761915406/babs_HF_snu0k6.jpg" alt="Barbara-Anne at the Highland Fling finish, smiling with medal and race bib" />
+      </p>
+    </div>
+  </div>
+  <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+</section>
+
+
+
+      <!-- Results CTA -->
+      <section id="results-cta" class="results-cta visible" aria-labelledby="results-heading">
+        <h2 id="results-heading">📝 LAST CHANCE! Log Your 2025 Race Results?</h2>
+        <p>Logged results help us build end-of-year nominations!</p>
+        <p><a href="https://www.facebook.com/groups/2256266274676317/posts/3624964147806516/"" target="_blank" class="cta-button" rel="noopener noreferrer">📥 Log Your Race Results Here</a></p>
+      </section>
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <!-- Swim (subtle blue, always visible) -->
+      <section id="swim" class="blue-section visible" aria-labelledby="swim-heading">
+        <h2 id="swim-heading">🏊 Pool Swim Sessions</h2>
+        <p>Join coached swims – choose from <strong>Direct Debit (£25/month)</strong> or <strong>Pay As You Go (£5.34/session)</strong> options.</p>
+        <ul>
+          <li><strong>🗓 Times:</strong> Mondays &amp; Thursdays — 06:00–07:30</li>
+          <li><strong>👨‍🏫 Coaching:</strong> 30 mins poolside coaching every Monday</li>
+          <li><strong>📍 Venue:</strong> Carnegie Leisure Centre</li>
+        </ul>
+        <p>Direct Debit means <strong>turn up and swim</strong> (no booking required). Prefer PAYG? Book individual sessions below:</p>
+
+        <div class="swim-options" style="margin:12px 0;">
+          <div class="blue-card visible">
+            <h3>💳 Direct Debit — £25/month</h3>
+            <p>Unlimited sessions. Turn up and swim, no booking required.</p>
+            <a href="https://pay.gocardless.com/billing/static/collect-customer-details?id=BRF01K6NAMWMWD2BDQPGTZBJT3JH12NY&initial=%2Fcollect-customer-details"
+               target="_blank" rel="noopener noreferrer" class="swim-button main">Sign Up for Direct Debit</a>
+          </div>
+
+          <div class="blue-card visible">
+            <h3>🏊 Pay As You Go — £5.34/session</h3>
+            <p>Book individual sessions via Spond.</p>
+            <a href="https://spond.com/client/groups/2576C43FF4D848A491D8723C0AF0F64D"
+               target="_blank" rel="noopener noreferrer" class="swim-button secondary">Book PAYG Session</a>
+          </div>
+        </div>
+
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
+
+<!-- Christmas Party -->
+<section id="xmas" class="party-cta visible" aria-labelledby="party-heading">
+  <h2 id="party-heading">🎄 TriBridges Christmas Party — Save the Date</h2>
+  <p>Join us to celebrate an incredible year — food, drinks, great company and stories!</p>
+
+  <div class="party-meta" role="list">
+    <div role="listitem"><strong>📅 Date:</strong> Fri, <time datetime="2025-12-05">5 Dec 2025</time></div>
+    <div role="listitem"><strong>⏰ Time:</strong> 18:00 onwards</div>
+    <div role="listitem"><strong>📍 Location:</strong> Louis Browns (function suite)</div>
+  </div>
+
+  <div class="party-actions">
+    <a class="button btn-rsvp" href="https://spond.com/client/sponds/2C0F37B5319A48D89C5C31BC80E15811">👉 View event on Spond</a>
+    <a class="button btn-menu" href="https://forms.gle/uCKswWRMUg6c2go19" target="_blank" rel="noopener noreferrer">👉 View Menu Choices</a>
+  </div>
+
+  <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+</section>
+
+
+      <!-- Coaches’ Corner (subtle blue, always visible) -->
+      <section id="coaches" class="blue-section visible" aria-labelledby="coaches-heading">
+        <h2 id="coaches-heading">📣 Coaches’ Corner — Interested in Becoming a Coach?</h2>
+        <p>We’re looking for members who are interested in undertaking <strong>Triathlon Scotland coaching qualifications</strong>. Coaching is a brilliant way to give back to the club, share your knowledge, and help fellow athletes thrive. 💪</p>
+
+        <div class="blue-card visible">
+          <p><strong>Funding support is available:</strong></p>
+          <ul>
+            <li>💷 <strong>Sport Scotland</strong> and <strong>Fife Council</strong> funding can make the cost minimal.</li>
+            <li>💰 After you qualify and start coaching with TriBridges, the club will <strong>reimburse any remaining cost</strong>.</li>
+          </ul>
+          <p>➡️ You can gain an official coaching qualification at very little to no personal expense!</p>
+        </div>
+
+        <p style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+          <a href="mailto:comms@tribridges.co.uk?subject=Coaching%20Qualification%20Interest" class="cta-button">✉️ Register Your Interest</a>
+          <a href="https://www.triathlonscotland.org/coaching/about-our-courses/" target="_blank" rel="noopener noreferrer"
+             class="button" style="--btn-bg:#045985; --btn-fg:#fff">🔗 About TS Courses</a>
+        </p>
+
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
+
+      <!-- WhatsApp -->
+      <section id="whatsapp" class="whatsapp-highlight visible" aria-labelledby="whatsapp-heading">
+        <h2 id="whatsapp-heading">💬 WhatsApp Community</h2>
+        <p>Stay in the loop with training, events, and last-minute plans.</p>
+        <p><a href="https://chat.whatsapp.com/JAB1a9lloktBxlnRBlfdIL?mode=ems_copy_t">Join the TriBridges WhatsApp group</a></p>
+      </section>
+
+      <!-- Triathlon Scotland Membership -->
+      <section id="triscot" class="membership-section visible" aria-labelledby="ts-membership">
+        <h3 id="ts-membership">🛎️ Why it pays to be a member of Triathlon Scotland</h3>
+        <p>Unlock race licence cover, member discounts, partner events, and community support by joining Triathlon Scotland.</p>
+        <p>
+          <a href="https://www.triathlonscotland.org/membership/" target="_blank" rel="noopener noreferrer" class="cta-button" aria-label="Join Triathlon Scotland (opens in new tab)">
+            🔗 Find out more &amp; join →
+          </a>
+        </p>
+        <a href="#top" class="back-to-links">⬆ Back to Quick Links</a>
+      </section>
+
+<!-- Discounts -->
+<section id="discounts" class="visible" aria-labelledby="discounts-heading">
+  <h2 id="discounts-heading">🎁 Discounts</h2>
+
+<div class="discount-header">Nopinz — Double Club Saving (Cycling Jersey/Trisuit)</div>
+<div class="discount-body">
+  <p>
+    <strong>Automatic Discount:</strong> <a href="https://nopinz.com/product-category/club-nopinz/tribridges/" target="_blank" rel="noopener noreferrer">20% off already applied</a> on TriBridges Cycling Jerseys and Trisuits at the club shop.
+  </p>
+  <p>
+    <strong>Extra Club Rebate:</strong> <b>TriBridges members get an additional 20% refunded after purchase—giving you a total 40% saving!</b>
+  </p>
+  <p>
+    <strong>How it works:</strong> Order from our <a href="https://nopinz.com/product-category/club-nopinz/tribridges/" target="_blank" rel="noopener noreferrer">Nopinz club page</a> (20% off at checkout). Then email your receipt to <a href="mailto:comms@tribridges.co.uk">treasurer@tribridges.co.uk</a> for your extra 20% club rebate.
+  </p>
+  <p style="color: #e63946; font-weight: bold;">
+    <strong>BE QUICK! ONLY VALID UNTIL:</strong> <time datetime="2025-11-03">03/11/2025</time>
+  </p>
+</div>
+
+
+  <div class="discount-header">SportsShoes — Club Discount</div>
+  <div class="discount-body">
+    <p>
+      <strong>Code:</strong> 
+      <a href="https://www.sportsshoes.com" 
+         class="discount-code" 
+         onclick="copyCode('ZF623DK4Q4IL'); return true;" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        ZF623DK4Q4IL
+      </a>
+    </p>
+    <p><strong>Offer:</strong> 15% off on <strong>AW25 only products</strong> (exclusions apply incl. Brooks, Coros, Garmin, Maurten, Shokz)</p>
+    <p><strong>Valid until:</strong> <time datetime="2025-11-01">01/11/25</time></p>
+  </div>
+
+<div class="discount-separator" role="separator" aria-hidden="true"></div>
+  <div class="discount-body">
+    <h3>British Triathlon Reward Zone</h3>
+    <p>Amazing discounts on a large range of brands and products.</p>
+    <p>
+      <a href="https://britishtriathlon.myezrewards.com/p/british-triathlon" 
+         class="discount-code" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        Open Reward Zone
+      </a>
+    </p>
+  </div>
+</section>
+
+      <!-- End-of-Year CTA (with buttons for socials) -->
+      <section id="eoy" class="results-cta visible" aria-labelledby="eoy-heading">
+        <h2 id="eoy-heading">📸 End-of-Year Highlights — We Need Your Best Bits!</h2>
+        <p>We’re pulling together a club montage to celebrate all the <strong>mega successes and amazing achievements</strong> of 2025. If you’re happy for your content to be shared on our socials, please send:</p>
+        <ul style="text-align:left; max-width:520px; margin:0 auto 1em; padding-left:1.2em;">
+          <li><strong>Photos/videos</strong> (finish-line moments, podiums, training squads, travel, funny clips)</li>
+          <li><strong>Event name/date</strong></li>
+          <li><strong>One-line caption</strong> (what happened / why it matters)</li>
+          <li><strong>Your consent</strong> to share on TriBridges socials &amp; the website</li>
+        </ul>
+
+        <p style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+          <a
+            class="cta-button"
+            href="mailto:comms@tribridges.co.uk?subject=TriBridges%20EOY%20Highlights&body=Hi%20Team%2C%0A%0AHere%20are%20my%20highlights%20for%20the%20EOY%20montage.%0A%0AWho%E2%80%99s%20in%20it%3A%20%5BNames%5D%0AEvent%20%2F%20Date%3A%20%5BEvent%20name%2C%20DD%2FMM%2FYYYY%5D%0ACaption%20(one%20line)%3A%20%5BWhy%20it%20matters%5D%0AConsent%3A%20I%20consent%20to%20TriBridges%20using%20these%20on%20socials%20%26%20the%20website.%0A%0ALinks%20or%20Attachments%3A%20%5BDrive%2FWeTransfer%20links%20or%20attach%20files%5D%0A%0AThanks%21"
+          >📤 Submit via Email</a>
+
+          <a
+            class="WhatsApp"
+            style="--btn-bg:#045985; --btn-fg:#fff"
+            href="https://chat.whatsapp.com/JAB1a9lloktBxlnRBlfdIL?mode=ems_copy_t"
+            target="_blank"
+            rel="noopener noreferrer"
+          >📎 Share Pics and Clips in WhatsApp</a>
+        </p>
+
+        <p><strong>How to send:</strong> WhatsApp (club group or DM an admin) · Email: <em>comms@tribridges.co.uk</em> · Spond: upload in the “End-of-Year Highlights” post</p>
+        <p><strong>Specs:</strong> photos ≥1080px · videos 5–30s · vertical preferred for reels/stories.<br>
+           <strong>Deadline:</strong> <em>01/11/2025</em></p>
+      </section>
+
+      <footer aria-label="Footer">
+        <p><a href="#top" class="back-to-top">Back to top ↑</a></p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- JS: reveal-in (kept, but most sections are visible by default now) + image fade-in -->
+  <script>
+    (function(){
+      const reveal = document.querySelectorAll('.reveal, #shoutoutsContainer div, .discount-body, .party-cta');
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, {rootMargin: '0px 0px -10% 0px' });
+      reveal.forEach(el=>io.observe(el));
+
+      // Fallback: ensure nothing stays hidden if IO doesn't fire
+      setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')), 1200);
+
+      // Fade-in images when loaded
+      document.querySelectorAll('img').forEach(img=>{
+        if(img.complete) img.classList.add('loaded');
+        else img.addEventListener('load', ()=>img.classList.add('loaded'), {once:true});
+      });
+    })();
+  </script>
+  <script>
+  function copyCode(code) {
+    navigator.clipboard.writeText(code).then(() => {
+      alert("✅ Discount code copied: " + code);
+    }).catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+  }
+</script>
+</body>
+</html>
